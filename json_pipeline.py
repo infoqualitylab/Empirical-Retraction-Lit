@@ -1,8 +1,11 @@
 import json
 
-infile = open('eppi_export.json', 'r', encoding = 'utf-8')
-bibliography = json.load(infile)
+infile = open('eppi_export_10.11.2020.json', 'r', encoding = 'utf-8')
+export = json.load(infile)
 infile.close()
+
+bibliography = export["References"]
+
 
 # print(bibliography[0]["Authors"])
 print("Length of bibliography: ", len(bibliography))
@@ -17,6 +20,7 @@ for record in range(0,(len(bibliography))):
     author_list.append(bibliography[record]["Authors"])
 print(author_list)
 print("Length of author list: ", len(author_list))
+
 
 #Make a new list of author fields, splitting each field where there are semicolons (turns semicolons into commas):
 new_author_list = []
@@ -36,7 +40,6 @@ for record in author_list:
 #     print('{}\n{}\n\n'.format(ori, modified))
 
 
-
 print(new_author_list)
 print("Length of new author list:", len(new_author_list))
 
@@ -49,8 +52,54 @@ for number in range(0,(len(bibliography))):
 for number in range(0,len(bibliography)):
     bibliography[number]["type"] = ["Publication"]
 
+
+#Add parentheses around Issue numbers
+new_issue_list = []
+for record in bibliography:
+    if len(record["Issue"]) == 0:
+        new_issue_list.append("")
+    else:
+        new_issue_list.append("(" + record["Issue"]+"),")
+
+print(new_issue_list)
+print("Length of new issue list:",len(new_issue_list))
+
+for number in range(0,(len(bibliography))):
+  bibliography[number]["Issue"] = new_issue_list[number]
+
+
+#Add period after page numbers
+new_pages_list = []
+for record in bibliography:
+    if len(record["Pages"]) == 0:
+        new_pages_list.append("")
+    else:
+        new_pages_list.append(record["Pages"]+".")
+
+print(new_pages_list)
+print("Length of new pages list:",len(new_pages_list))
+
+for number in range(0,(len(bibliography))):
+  bibliography[number]["Pages"] = new_pages_list[number]
+
+#Change key names to match index
+for record in bibliography:
+    record["label"] = record["Title"]
+    del record["Title"]
+    record["author"] = record["Authors"]
+    del record["Authors"]
+    record["id"] = record["ItemId"]
+    del record["ItemId"]
+    record["venue"] = record["ParentTitle"]
+    del record["ParentTitle"]
+    record["pub-type"] = record["TypeName"]
+    del record["TypeName"]
+    record["year"] = record["Year"]
+    del record["Year"]
+
+
 #Write out to new json file
-with open('json_output_10.11.2020.json', 'w') as json_file:
+with open('publications_10.11.2020.json', 'w') as json_file:
   json.dump({"items": bibliography}, json_file)
 
 
