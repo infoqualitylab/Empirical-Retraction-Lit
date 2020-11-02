@@ -99,7 +99,7 @@ for record in bibliography:
 
 
 #Write out to new json file
-with open('publications_10.11.2020.json', 'w') as json_file:
+with open('publications.json', 'w') as json_file:
   json.dump({"items": bibliography}, json_file)
 
 
