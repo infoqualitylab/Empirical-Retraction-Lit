@@ -1,4 +1,5 @@
 import json
+#No additional action required; library json comes with Python, and users do not need to install the library themselves
 
 infile = open('eppi_export_10.11.2020.json', 'r', encoding = 'utf-8')
 export = json.load(infile)
