@@ -85,7 +85,7 @@ for number in range(0,(len(bibliography))):
   bibliography[number]["Pages"] = new_pages_list[number]
 
 
-#Add http://doi.org/ to DOIs
+#Add http://doi.org/ to DOIs; print out list of those missing DOIs
 new_doi_list = []
 
 for record in bibliography:
@@ -97,8 +97,11 @@ for record in bibliography:
 print("Length of new DOI list:",len(new_doi_list))
 
 for number in range(0,(len(bibliography))):
-  bibliography[number]["DOI"] = new_doi_list[number]
-
+    if bibliography[number]["DOI"] != "":
+        bibliography[number]["DOI"] = new_doi_list[number]
+    else:
+        print("No DOI:" + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
+        del bibliography[number]["DOI"] #Take out empty DOI field so link to nowhere doesn't appear
 
 #Change key names to match index.html
 for record in bibliography:
@@ -134,13 +137,14 @@ for record in bibliography:
                 if "Attributes" in attributes_list[number]:
                     for attribute in attributes_list[number]["Attributes"]["AttributesList"]:
                         if item["AttributeId"] == attribute["AttributeId"]:
-                            if "attribute"+ str(number) in record:
-                                if not isinstance(record["attribute"+ str(number)], list):
-                                    record["attribute"+ str(number)] = [record["attribute"+ str(number)]]
-                                record["attribute"+ str(number)].append(attribute["AttributeName"])
-                            else:
-                                record["attribute"+ str(number)] = attribute["AttributeName"]
-print(bibliography)
+                            if "Revisit" not in attribute["AttributeName"]:  #Get rid of codes meant only for us
+                                if "attribute"+ str(number) in record:
+                                    if not isinstance(record["attribute"+ str(number)], list):
+                                        record["attribute"+ str(number)] = [record["attribute"+ str(number)]]
+                                    record["attribute"+ str(number)].append(attribute["AttributeName"])
+                                else:
+                                    record["attribute"+ str(number)] = attribute["AttributeName"]
+# print(bibliography)
 
 # Database source 0
 # What Type of Artifact is Studied:  (if any)? 1
@@ -159,12 +163,12 @@ print(bibliography)
 # Valuable data is in varying levels
 
 # Print guide to help identify what filters are
-print("GUIDE TO FILTER OPTIONS:")
+print("\nGUIDE TO FILTER OPTIONS:")
 for name in attribute_name_list:
     print(name, "attribute"+str(attribute_name_list.index(name)))
 
 # Write out to new json file
-# with open('publications_12.20.2020.json', 'w') as json_file:
+# with open('publications.json', 'w') as json_file:
 #   json.dump({"items": bibliography}, json_file)
 
 
