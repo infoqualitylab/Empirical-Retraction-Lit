@@ -127,9 +127,50 @@ attributes_list = attributes_dict["AttributesList"]
 attribute_name_list = []
 for number in range(0,len(attributes_list)):
     attribute_name_list.append(attributes_list[number]["AttributeName"])
+# print(attribute_name_list)
+
+new_letter_list = []
+new_attribute_name_list = []
+
+for field_name in attribute_name_list:
+    for letter in field_name:
+        if letter == " ":
+            new_letter_list.append("%20")
+        elif letter == "(":
+            # new_letter_list.append("&#40;")
+            new_letter_list.append("")
+        elif letter == ")":
+            # new_letter_list.append("&#41;")
+            new_letter_list.append("")
+        elif letter == "?":
+            # new_letter_list.append("&#63;")
+            new_letter_list.append("")
+        else:
+            new_letter_list.append(letter)
+    new_word = ''.join(new_letter_list)
+    new_attribute_name_list.append(new_word)
+    new_letter_list = []
+
+print("Available Filters: ", new_attribute_name_list)
 
 #Create new fields for each data extraction code
 #Currently, keys are generic (e.g., attribute0, attribute1); spaces in the original names prevent it working
+# for record in bibliography:
+#     if "Codes" in record:
+#         for item in record["Codes"]:
+#             for number in range(len(attributes_list)):
+#                 if "Attributes" in attributes_list[number]:
+#                     for attribute in attributes_list[number]["Attributes"]["AttributesList"]:
+#                         if item["AttributeId"] == attribute["AttributeId"]:
+#                             if "Revisit" not in attribute["AttributeName"]:  #Get rid of codes meant only for us
+#                                 if "attribute"+ str(number) in record:
+#                                     if not isinstance(record["attribute"+ str(number)], list):
+#                                         record["attribute"+ str(number)] = [record["attribute"+ str(number)]]
+#                                     record["attribute"+ str(number)].append(attribute["AttributeName"])
+#                                 else:
+#                                     record["attribute"+ str(number)] = attribute["AttributeName"]
+# print(bibliography)
+
 for record in bibliography:
     if "Codes" in record:
         for item in record["Codes"]:
@@ -138,13 +179,16 @@ for record in bibliography:
                     for attribute in attributes_list[number]["Attributes"]["AttributesList"]:
                         if item["AttributeId"] == attribute["AttributeId"]:
                             if "Revisit" not in attribute["AttributeName"]:  #Get rid of codes meant only for us
-                                if "attribute"+ str(number) in record:
-                                    if not isinstance(record["attribute"+ str(number)], list):
-                                        record["attribute"+ str(number)] = [record["attribute"+ str(number)]]
-                                    record["attribute"+ str(number)].append(attribute["AttributeName"])
-                                else:
-                                    record["attribute"+ str(number)] = attribute["AttributeName"]
+                                 if new_attribute_name_list[number] in record:
+                                    if not isinstance(record[new_attribute_name_list[number]], list):
+                                        record[new_attribute_name_list[number]] = [record[new_attribute_name_list[number]]]
+                                    record[new_attribute_name_list[number]].append(attribute["AttributeName"])
+                                 else:
+                                    record[new_attribute_name_list[number]] = attribute["AttributeName"]
 # print(bibliography)
+
+
+
 
 # Database source 0
 # What Type of Artifact is Studied:  (if any)? 1
@@ -163,13 +207,13 @@ for record in bibliography:
 # Valuable data is in varying levels
 
 # Print guide to help identify what filters are
-print("\nGUIDE TO FILTER OPTIONS:")
-for name in attribute_name_list:
-    print(name, "attribute"+str(attribute_name_list.index(name)))
+# print("\nGUIDE TO FILTER OPTIONS:")
+# for name in attribute_name_list:
+#     print(name, "attribute"+str(attribute_name_list.index(name)))
 
 # Write out to new json file
-# with open('publications.json', 'w') as json_file:
-#   json.dump({"items": bibliography}, json_file)
+with open('publications.json', 'w') as json_file:
+  json.dump({"items": bibliography}, json_file)
 
 
 
