@@ -1,7 +1,7 @@
 import json
 #No additional action required; library json comes with Python, and users do not need to install the library themselves
 
-infile = open('eppi_export_12.10.2020.json', 'r', encoding = 'utf-8')
+infile = open('/Users/randiproescholdt/Documents/RA/Sloan/EPPI_Export_5.18.21.json', 'r', encoding = 'utf-8')
 export = json.load(infile)
 infile.close()
 
@@ -133,9 +133,9 @@ new_letter_list = []
 new_attribute_name_list = []
 
 for field_name in attribute_name_list:
-    for letter in field_name:
+    for letter in field_name.strip():
         if letter == " ":
-            new_letter_list.append("%20")
+            new_letter_list.append("_")
         elif letter == "(":
             # new_letter_list.append("&#40;")
             new_letter_list.append("")
@@ -144,6 +144,8 @@ for field_name in attribute_name_list:
             new_letter_list.append("")
         elif letter == "?":
             # new_letter_list.append("&#63;")
+            new_letter_list.append("")
+        elif letter == ",":
             new_letter_list.append("")
         else:
             new_letter_list.append(letter)
