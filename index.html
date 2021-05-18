@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>RISRS Retraction Review</title>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic&amp;subset=latin,vietnamese' rel='stylesheet' type='text/css' />
+  <link href='styles/styles.css' rel='stylesheet' type='text/css' />
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72555382-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+    <link rel="exhibit/data" href="metadata/publications.json" />
+    <!--<link rel="exhibit/data" href="metadata/venues.json" />
+    <link rel="exhibit/data" href="metadata/authors.json" />
+    <link rel="exhibit/data" href="metadata/schema.json" />-->
+
+    <script type="text/javascript" src="https://api.simile-widgets.org/exhibit/current/exhibit-api.js"></script>
+    <!--script type="text/javascript" src="https://static.simile.mit.edu/exhibit/api-2.1.0/exhibit-api.js"></script-->
+    <style>
+        #publication-container {
+          margin: 0px -32px;
+          margin-top: 64px;
+          font-size: 11pt;
+        }
+
+        #publication-container > table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 32px;
+        }
+        #publication-container > table > tbody > tr > td {
+          vertical-align: top;
+        }
+
+        #facet-panel {
+        }
+
+        .exhibit-flowingFacet {
+          margin-top: 32px;
+        }
+
+        ol.exhibit-tileView-body {
+          counter-reset: li;
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        ol.exhibit-tileView-body > li {
+          position: relative;
+          list-style: none;
+        }
+
+        ol.exhibit-tileView-body > li:before {
+          content: counter(li);
+          counter-increment: li;
+          position: absolute;
+          left: -2em;
+          display: block;
+          width: 1.5em;
+          text-align: right;
+          color: #aaa;
+        }
+
+        div.publication-lens {
+            margin-top:     1em;
+            margin-bottom:  1.5em;
+        }
+        .publication-lens div.authors {
+            font-style: italic;
+        }
+        .publication-lens .publication-title {
+            font-weight: bold;
+        }
+        .publication-lens div.downloads {
+        }
+        .publication-lens div.downloads > a {
+          margin-left: 0.5em;
+        }
+        .publication-lens div.abstract {
+            color:  #666;
+        }
+        .publication-lens div.excerpt {
+            color:  #666;
+        }
+        .publication-lens .status {
+            color: #c00;
+        }
+
+        <!--a.exhibit-item, a.exhibit-item:link, a.exhibit-item:active, a.exhibit-item:visited, a.exhibit-item:hover,
+        a.exhibit-action, a.exhibit-action:link, a.exhibit-action:active, a.exhibit-action:visited, a.exhibit-action:hover {
+          border-bottom: none;-->
+        }
+    </style>
+  </head>
+  <body>
+    <div id="page-frame">
+      
+        <div id="nav-box">
+    <!--<a class="item" href="/">home</a>
+    <a class="item" href="publications">publications</a>
+    <a class="item" href="resume">r&eacute;sum&eacute;</a>
+    <a class="item" href="project-list">projects</a> -->
+  </div>
+  <!--<script>
+    $(function() {
+      var url = document.location.href;
+      url = url.replace(/\.php$/, '');
+      url = url.replace(/\/index$/, '/');
+      $('#nav-box > a.item').each(function(i, a) {
+        if (a.href == url) {
+          $(a).remove();
+        }
+      });
+    });
+  </script>-->
+
+      <div id="page-title">For export options, click orange scissors icon next to search bar. To access article links, hold ctrl key and click link.</div>
+
+      <div ex:role="collection" ex:itemTypes="Publication"></div>
+      
+      <div id="publication-container"><table>
+          <tr>
+              <td style="width: 45em;">
+                  <div ex:role="lens" 
+                      ex:itemTypes="Publication"
+                      class="publication-lens"
+                      style="display: none">
+                      <div><span class="publication-title" ex:content=".label"></span></div>
+                      <div>
+                        <span class="authors" ex:content=".author"></span>.
+                        <i ex:if-exists=".venue"><span ex:content=".venue"></span>, </i>
+                        <i ex:if-exists=".event"><span ex:content=".event"></span>, </i>
+						<span ex:content=".Volume"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>
+						<span ex:content=".Issue"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>
+						<span ex:content=".Pages"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>
+                        <span ex:content=".year"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>.
+						<span ex:content=".DOI"></span><span ex:if-exists=".status" class = "status"></span>
+						<a ex:if-exists=".DOI" ex:href-content=".DOI">Link to article</a>
+						<!--<a href="http://doi.org/10.1080/08989621.2020.1754804">http://doi.org/10.1080/08989621.2020.1754804</a>-->
+                      </div>
+                      <div class="downloads">&mdash;
+                          <a ex:if-exists=".projectSite" ex:href-content=".projectSite" target="_blank">project site</a>
+                          <a ex:if-exists=".url" ex:href-content=".url">source article</a>
+                          <a ex:if-exists=".talkURL" ex:href-content=".talkURL">talk video</a>
+                          <a ex:if-exists=".screencastURL" ex:href-content=".screencastURL">screencast</a>
+                          <a ex:if-exists=".pdfURL" ex:href-content=".pdfURL">pdf</a>
+                          <a ex:if-exists=".pptURL" ex:href-content=".pptURL">powerpoint</a>
+                          <a ex:if-exists=".psURL" ex:href-content=".psURL">ps</a>
+                      </div>
+                      <div ex:if-exists=".abstract" class="abstract" ex:content=".abstract"></div>
+                      <div ex:if-exists=".excerpt" class="excerpt" ex:content=".excerpt"></div>
+                  </div>
+                  <!--<div ex:role="lens" 
+                      ex:itemTypes="Person"
+                      style="display: none">
+                      <span style="color: #008" ex:content=".label"></span>, <i ex:content=".position"></i>
+                      <a ex:if-exists=".website" ex:href-content=".website" target="_blank">[web site]</a>
+                      <ol ex:content="!author">
+                          <li ex:content="value"></li>
+                      </ol>
+                  </div>
+                  <div ex:role="lens" 
+                      ex:itemTypes="Venue"
+                      style="display: none">
+                      <span style="color: #008" ex:content=".label"></span>
+                      <ol ex:content="!venue">
+                          <li ex:content="value"></li>
+                      </ol>
+                  </div>-->
+                  
+                  <div ex:role="view"
+                      ex:showAll="false"
+                      ex:grouped="false"
+                      ex:orders=".year"
+                      ex:directions="descending"
+                      ex:possibleOrders=".author, .year, .pub-type, .work-done-at, .AttributeId"
+                      ></div>
+              </td>
+              <td style="width: 18em;" id="facet-panel">
+                  <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="search"></div>
+                  <div ex:role="facet" ex:expression=".pub-type" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by type"></div>
+				  <div ex:role="facet" ex:expression=".What_Type_of_Artifact_is_Studied:__if_any" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by artifact"></div>
+				  <div ex:role="facet" ex:expression=".What_Methods_does_the_Study_Use:_Select_All_That_Apply" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by method"></div>
+				  <div ex:role="facet" ex:expression=".Database_source" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by data source"></div>
+				  <!--<div ex:role="facet" ex:expression=".Location" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by geographic location of retracted papers"></div>-->
+                  <div ex:role="facet" ex:expression=".venue" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by venue"></div>
+                  <div ex:role="facet" ex:expression=".author" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by author"></div>
+              </td>
+          </tr>
+      </table></div>
+
+    </div>
+  </body>
+</html>
+
