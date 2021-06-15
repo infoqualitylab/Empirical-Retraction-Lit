@@ -33,6 +33,7 @@ Alternative formats for v. 1 of RISRS bibliography
 # Version History
 
 v.1.0.0
+
 o	Initial Release
 o	Bibliography of 162 items
 
