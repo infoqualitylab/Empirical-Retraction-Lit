@@ -6,24 +6,24 @@ This page includes code that takes a JSON-formatted file exported from EPPI-Revi
 
 # Included Files
 
-  •	The instructions for retrieving the input file from EPPI-Reviewer and running the code
+The instructions for retrieving the input file from EPPI-Reviewer and running the code
     
     o	instructions_github.docx
     
-  •	The code for metadata editing and formatting
+The code for metadata editing and formatting
     
     o	 json_pipeline.py
     
-  •	Underlying data for v.1 of RISRS bibliography
+Underlying data for v.1 of RISRS bibliography
     
     o	index--2021-05-18.html
     o	publications--2021-05-18.json
     
-  •	A sample export from EPPI-Reviewer PRIOR to formatting via the cod
+A sample export from EPPI-Reviewer PRIOR to formatting via the cod
     
     o	eppi_export_162.json
     
-  •	Alternative formats for v. 1 of RISRS bibliography
+Alternative formats for v. 1 of RISRS bibliography
     
     o	Zotero-v1-162.bib
     o	Zotero-v1-162.csv
