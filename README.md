@@ -28,4 +28,14 @@ Alternative formats for v. 1 of RISRS bibliography
     o	Zotero-v1-162.bib
     o	Zotero-v1-162.csv
     o	Zotero-v1-162.ris
+    
+
+# Version History
+
+v.1.0.0
+o	Initial Release
+o	Bibliography of 162 items
+
+
+
 
