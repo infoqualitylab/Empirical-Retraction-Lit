@@ -101,10 +101,11 @@ print("Length of new DOI list:",len(new_doi_list))
 for number in range(0,(len(bibliography))):
     if bibliography[number]["DOI"] != "":
         bibliography[number]["DOI"] = new_doi_list[number] # This will be for displaying the DOI
-        bibliography[number]["URL"] = new_doi_list[number] # This will be for the "Link to article"
+        bibliography[number]["Link"] = new_doi_list[number] # This will be for the "Link to article"
     else:
         if bibliography[number]["URL"] != "":
             print("No DOI, but has URL; " + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
+            bibliography[number]["Link"] = bibliography[number]["URL"]
         else:
             print("No DOI, no URL; " + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
             del bibliography[number]["URL"] # Take out empty URL field so link to nowhere doesn't appear
