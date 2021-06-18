@@ -1,7 +1,7 @@
 import json
 #No additional action required; library json comes with Python, and users do not need to install the library themselves
 
-infile = open('/Users/randiproescholdt/Documents/RA/Sloan/EPPI_Export_5.18.21.json', 'r', encoding = 'utf-8')
+infile = open('/Users/randiproescholdt/Documents/Sloan - Python/eppi_export_6.18.2021.json', 'r', encoding = 'utf-8')
 export = json.load(infile)
 infile.close()
 
@@ -60,6 +60,8 @@ new_issue_list = []
 for record in bibliography:
     if len(record["Issue"]) == 0:
         new_issue_list.append("")
+        if record['Volume'] != "":
+            record['Volume'] = record['Volume'] + "," # Add a comma after the volume number if there is no issue number
     else:
         new_issue_list.append("(" + record["Issue"]+"),")
 
@@ -98,10 +100,15 @@ print("Length of new DOI list:",len(new_doi_list))
 
 for number in range(0,(len(bibliography))):
     if bibliography[number]["DOI"] != "":
-        bibliography[number]["DOI"] = new_doi_list[number]
+        bibliography[number]["DOI"] = new_doi_list[number] # This will be for displaying the DOI
+        bibliography[number]["URL"] = new_doi_list[number] # This will be for the "Link to article"
     else:
-        print("No DOI:" + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
-        del bibliography[number]["DOI"] #Take out empty DOI field so link to nowhere doesn't appear
+        if bibliography[number]["URL"] != "":
+            print("No DOI, but has URL; " + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
+        else:
+            print("No DOI, no URL; " + bibliography[number]["Authors"][0] + ", " + bibliography[number]["Title"])
+            del bibliography[number]["URL"] # Take out empty URL field so link to nowhere doesn't appear
+        del bibliography[number]["DOI"] #Take out empty DOI field
 
 #Change key names to match index.html
 for record in bibliography:
@@ -111,14 +118,15 @@ for record in bibliography:
     del record["Authors"]
     record["id"] = record["ItemId"]
     del record["ItemId"]
-    record["venue"] = record["ParentTitle"]
+    if record["ParentTitle"] != "":     # If no journal is listed, we don't want a journal field; otherwise, an extra comma will show up
+        record["venue"] = record["ParentTitle"]
     del record["ParentTitle"]
     record["pub-type"] = record["TypeName"]
     del record["TypeName"]
     record["year"] = record["Year"]
     del record["Year"]
 
-##DATA EXTRACTION
+## ACCESSING DATA FROM THE CODE SETS
 
 attributes_dict = codesets[0]["Attributes"]
 attributes_list = attributes_dict["AttributesList"]
@@ -155,23 +163,6 @@ for field_name in attribute_name_list:
 
 print("Available Filters: ", new_attribute_name_list)
 
-#Create new fields for each data extraction code
-#Currently, keys are generic (e.g., attribute0, attribute1); spaces in the original names prevent it working
-# for record in bibliography:
-#     if "Codes" in record:
-#         for item in record["Codes"]:
-#             for number in range(len(attributes_list)):
-#                 if "Attributes" in attributes_list[number]:
-#                     for attribute in attributes_list[number]["Attributes"]["AttributesList"]:
-#                         if item["AttributeId"] == attribute["AttributeId"]:
-#                             if "Revisit" not in attribute["AttributeName"]:  #Get rid of codes meant only for us
-#                                 if "attribute"+ str(number) in record:
-#                                     if not isinstance(record["attribute"+ str(number)], list):
-#                                         record["attribute"+ str(number)] = [record["attribute"+ str(number)]]
-#                                     record["attribute"+ str(number)].append(attribute["AttributeName"])
-#                                 else:
-#                                     record["attribute"+ str(number)] = attribute["AttributeName"]
-# print(bibliography)
 
 for record in bibliography:
     if "Codes" in record:
@@ -189,29 +180,6 @@ for record in bibliography:
                                     record[new_attribute_name_list[number]] = attribute["AttributeName"]
 # print(bibliography)
 
-
-
-
-# Database source 0
-# What Type of Artifact is Studied:  (if any)? 1
-# What Methods does the Study Use: (Select All That Apply) 2
-# Findings Related to the Characteristics of Retracted Papers/Notices: 3
-# Several databases/disciplines 4
-# Findings Relate To: 5
-# Findings Related to Impact of Retraction: 6
-# Does the Article Focus on a Particular Role of the Publication Process?  (Select 0, 1 or 2) 7
-# In Discussion & Conclusions, What Problems of Retraction are Discussed?  8
-# In Discussion & Conclusions, What Reforms are Suggested to Minimize Retractions/Their Impact? 9
-# What Open Questions or Future Work are Suggested? 10
-# NOTES 11
-# citation (first) 12
-# STATUS CODES 13
-# Valuable data is in varying levels
-
-# Print guide to help identify what filters are
-# print("\nGUIDE TO FILTER OPTIONS:")
-# for name in attribute_name_list:
-#     print(name, "attribute"+str(attribute_name_list.index(name)))
 
 # Write out to new json file
 with open('publications.json', 'w') as json_file:
