@@ -36,6 +36,13 @@ v.1.0.0
 
 o	Initial Release--Bibliography of 162 items
 
+v.2.0.0
+o	Bibliography of 385 items
+
+v.2.1.0
+o	Bibliography of 386 items
+
+
 
 
 
