@@ -47,6 +47,7 @@ o	Bibliography of 386 items
 v.2.2.0
 
 o	Bibliography of 386 items
+
 o	Refined categorization for web filters
 
 
