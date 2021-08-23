@@ -19,7 +19,7 @@ Underlying data for v.1 of RISRS bibliography
     o	index--2021-05-18.html
     o	publications--2021-05-18.json
     
-A sample export from EPPI-Reviewer PRIOR to formatting via the cod
+A sample export from EPPI-Reviewer PRIOR to formatting via the code
     
     o	eppi_export_162.json
     
