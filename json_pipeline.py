@@ -1,7 +1,11 @@
 import json
 #No additional action required; library json comes with Python, and users do not need to install the library themselves
 
+#Input your filepath here:
 infile = open('/Users/randiproescholdt/Documents/Sloan - Python/eppi_export_6.18.2021.json', 'r', encoding = 'utf-8')
+#If you encounter a unicode error, try the following line instead:
+#infile = open(r'/Users/randiproescholdt/Documents/Sloan - Python/eppi_export_6.18.2021.json', 'r', encoding = 'utf-8')
+
 export = json.load(infile)
 infile.close()
 
