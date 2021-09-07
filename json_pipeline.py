@@ -56,7 +56,7 @@ for number in range(0,(len(bibliography))):
 
 #Add "Publication" as type (needed for exhibit to work)
 for number in range(0,len(bibliography)):
-    bibliography[number]["type"] = ["Publication"]
+    bibliography[number]["type"] = "Publication"
 
 
 #Add parentheses around Issue numbers
