@@ -94,20 +94,19 @@
             color: #c00;
         }
 
-        <!--a.exhibit-item, a.exhibit-item:link, a.exhibit-item:active, a.exhibit-item:visited, a.exhibit-item:hover,
+        a.exhibit-item, a.exhibit-item:link, a.exhibit-item:active, a.exhibit-item:visited, a.exhibit-item:hover,
         a.exhibit-action, a.exhibit-action:link, a.exhibit-action:active, a.exhibit-action:visited, a.exhibit-action:hover {
-          border-bottom: none;-->
+          border-bottom: none;
         }
     </style>
   </head>
   <body>
     <div id="page-frame">
-      
         <div id="nav-box">
     <!--<a class="item" href="/">home</a>
     <a class="item" href="publications">publications</a>
     <a class="item" href="resume">r&eacute;sum&eacute;</a>
-    <a class="item" href="project-list">projects</a> -->
+    <a class="item" href="project-list">projects</a>-->
   </div>
   <!--<script>
     $(function() {
@@ -122,7 +121,7 @@
     });
   </script>-->
 
-      <div id="page-title">For export options, click orange scissors icon next to search bar. To access article links, hold ctrl key and click link.</div>
+      <div id="page-title">For export options, click orange scissors icon next to search bar. To access article links, hold control or command key and click link.</div>
 
       <div ex:role="collection" ex:itemTypes="Publication"></div>
       
@@ -143,10 +142,10 @@
 						<span ex:content=".Pages"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>
                         <span ex:content=".year"></span><span ex:if-exists=".status" class="status"> (<span ex:content=".status"></span>)</span>.
 						<span ex:content=".DOI"></span><span ex:if-exists=".status" class = "status"></span>
-						<a ex:if-exists=".DOI" ex:href-content=".DOI">Link to article</a>
+						<a ex:if-exists=".Link" ex:href-content=".Link">Link to publication</a>
 						<!--<a href="http://doi.org/10.1080/08989621.2020.1754804">http://doi.org/10.1080/08989621.2020.1754804</a>-->
                       </div>
-                      <div class="downloads">&mdash;
+                      <!--<div class="downloads">&mdash;
                           <a ex:if-exists=".projectSite" ex:href-content=".projectSite" target="_blank">project site</a>
                           <a ex:if-exists=".url" ex:href-content=".url">source article</a>
                           <a ex:if-exists=".talkURL" ex:href-content=".talkURL">talk video</a>
@@ -154,7 +153,7 @@
                           <a ex:if-exists=".pdfURL" ex:href-content=".pdfURL">pdf</a>
                           <a ex:if-exists=".pptURL" ex:href-content=".pptURL">powerpoint</a>
                           <a ex:if-exists=".psURL" ex:href-content=".psURL">ps</a>
-                      </div>
+                      </div>-->
                       <div ex:if-exists=".abstract" class="abstract" ex:content=".abstract"></div>
                       <div ex:if-exists=".excerpt" class="excerpt" ex:content=".excerpt"></div>
                   </div>
@@ -186,11 +185,25 @@
               </td>
               <td style="width: 18em;" id="facet-panel">
                   <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="search"></div>
-                  <div ex:role="facet" ex:expression=".pub-type" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by type"></div>
-				  <div ex:role="facet" ex:expression=".What_Type_of_Artifact_is_Studied:__if_any" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by artifact"></div>
-				  <div ex:role="facet" ex:expression=".What_Methods_does_the_Study_Use:_Select_All_That_Apply" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by method"></div>
-				  <div ex:role="facet" ex:expression=".Database_source" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by data source"></div>
-				  <!--<div ex:role="facet" ex:expression=".Location" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by geographic location of retracted papers"></div>-->
+                  <div ex:role="facet" ex:expression=".Language" ex:sortMode="alpha" ex:scroll="false" ex:facetLabel="filter by language"></div>
+                  <div ex:role="facet" ex:expression=".pub-type" ex:sortMode="count" ex:scroll="false" ex:facetLabel="Publication type"></div>
+				  <div ex:role="facet" ex:expression=".Authorship_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Authorship of retracted papers"></div>
+				  <div ex:role="facet" ex:expression=".Citation_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation of retracted papers"></div>
+                  <div ex:role="facet" ex:expression=".Citation_studies_-_sentiment_awareness" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation studies - Sentiment awareness"></div>
+				  <div ex:role="facet" ex:expression=".Perceptions_and_discussion_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Perceptions and discussion of retracted papers"></div>
+				  <div ex:role="facet" ex:expression=".Impacts_of_retraction" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Impacts of retraction"></div>
+				  <div ex:role="facet" ex:expression=".Characteristics_of_retraction_notices" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retraction notices"></div>
+				  <div ex:role="facet" ex:expression=".Characteristics_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retracted papers"></div>
+                  <div ex:role="facet" ex:expression=".Database_search_limitations" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Database search limitations used by studies"></div>
+                  <div ex:role="facet" ex:expression=".Interviews_and_surveys" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Interviews and surveys"></div>
+				  <div ex:role="facet" ex:expression=".Processes_and_policies" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Processes and policies related to retraction"></div>
+                  <div ex:role="facet" ex:expression=".Studies_related_to_discipline_or_geography" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies related to discipline or geography"></div>
+                  <div ex:role="facet" ex:expression=".Visibility_of_retraction_status" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Visibility of retraction status"></div>
+				  <div ex:role="facet" ex:expression=".Studies_proposing_methods_to_detect_and_prevent_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods to detect and prevent problems in the literature"></div>
+				  <div ex:role="facet" ex:expression=".Studies_proposing_methods_for_studying_and_responding_to_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods for studying and responding to retracted papers"></div>
+				  <div ex:role="facet" ex:expression=".Studies_performing_analyses_and_actions_to_identify_and_report_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies performing analyses and actions to identify and report problems in the literature"></div>
+				  <div ex:role="facet" ex:expression=".Network_Visualization" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Network visualization"></div>
+                  <div ex:role="facet" ex:expression=".Other" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Other"></div>
                   <div ex:role="facet" ex:expression=".venue" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by venue"></div>
                   <div ex:role="facet" ex:expression=".author" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by author"></div>
               </td>
