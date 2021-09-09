@@ -39,11 +39,7 @@ for record in author_list:
             if len(each_au) > 0:
                 au_names.append(each_au) #au_names is individual authors
 
-        # record = ', '.join(each_au)
     new_author_list.append(au_names)
-
-# for ori, modified in zip(author_list, new_author_list):
-#     print('{}\n{}\n\n'.format(ori, modified))
 
 
 # print(new_author_list)
