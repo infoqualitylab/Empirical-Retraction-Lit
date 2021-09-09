@@ -50,5 +50,8 @@ o	Bibliography of 386 items
 
 o	Refined categorization for web filters
 
+v.2.2.0
 
+o	Bibliography of 385 items
 
+o	Refined categorization for web filters
