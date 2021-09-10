@@ -1,5 +1,5 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498474.svg)](https://doi.org/10.5281/zenodo.5498474)# EPPI-Reviewer_to_Exhibit_JSON
-Empirical Retraction Lit bibliography 
+# Retraction Lit bibliography 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498474.svg)](https://doi.org/10.5281/zenodo.5498474)Empirical 
 Includes bibliography data and web maintenance instructions.
 
 # Description
