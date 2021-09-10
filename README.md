@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/303028085.svg)](https://zenodo.org/badge/latestdoi/303028085)
 # EPPI-Reviewer_to_Exhibit_JSON
 Formats EPPI-Reviewer JSON export for use as Exhibit JSON
 
@@ -61,4 +62,5 @@ o	Updated metadata for online first items now in a formally published journal is
 o	Refined categorization for web filters
 
 o	Renamed from RISRS Bibliography to Empirical Retraction Lit
+
 
