@@ -1,5 +1,5 @@
-# Retraction Lit bibliography 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498474.svg)](https://doi.org/10.5281/zenodo.5498474)Empirical 
+# Empirical Retraction Lit bibliography 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498474.svg)](https://doi.org/10.5281/zenodo.5498474) 
 Includes bibliography data and web maintenance instructions.
 
 # Description
