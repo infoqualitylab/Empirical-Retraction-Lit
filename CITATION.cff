@@ -1,6 +1,7 @@
 # YAML 1.2
 # Project-level DOI: 10.5281/zenodo.5498474
 ---
+cff-version: "2.20.1"
 authors: 
   -
     family-names: Proescholdt
@@ -13,7 +14,6 @@ authors:
   -
     family-names: "The RISRS Team"
     given-names: 
-cff-version: "2.20.1"
 date-released: 2021-09-10
 - name: cff-validator
   uses: dieghernan/cff-validator@v1
