@@ -50,7 +50,7 @@ o	Bibliography of 386 items
 
 o	Refined categorization for web filters
 
-v.2.2.0
+v.2.20.0
 
 o   Replaced 3 preprints with published versions
 
@@ -59,4 +59,6 @@ o	Excluded 1 research project (now published)
 o	Updated metadata for online first items now in a formally published journal issue
 
 o	Refined categorization for web filters
+
+o	Renamed from RISRS Bibliography to Empirical Retraction Lit
 
