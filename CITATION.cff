@@ -10,7 +10,7 @@ authors:
     given-names: Jodi
     orcid: "https://orcid.org/0000-0002-5098-5667"
   -
-    family-names: "The RISRS Team"
+    name: "The RISRS Team"
 date-released: 2021-09-10
 keywords: 
   - Retraction
@@ -50,6 +50,6 @@ references:
           given-names: Yoss
         - family-names: Howell
           given-names: Katherine
-        - family-names: "The RISRS Team"
+        - name: "The RISRS Team"
     title: "Recommendations from the Reducing the Inadvertent Spread of Retracted Science: Shaping a Research and Implementation Agenda Project"
     doi: 10.31222/osf.io/ms579
