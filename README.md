@@ -5,6 +5,8 @@ Includes bibliography data and web maintenance instructions.
 # Description
 Bibliography of empirical literature related to retraction from the "Reducing the Inadvertent Spread of Retracted Science: Shaping a Research and Implementation Agenda" (RISRS) project, Alfred P. Sloan Foundation G-2020-12623.
 
+This contains content (bibliographic data), website materials (for an Exhibit-based website), and web maintenance materials.
+Formats EPPI-Reviewer JSON export for use as Exhibit JSON
 
 Code that takes a JSON-formatted file exported from EPPI-Reviewer and formats it for use as Exhibit JSON to enable online sharing of review bibliographies. The page also includes archived versions of the Info Quality Lab’s RISRS bibliography. The current official version can be found here: https://infoqualitylab.org/projects/risrs2020/bibliography/ 
 
@@ -32,18 +34,19 @@ The code for metadata editing and formatting. Formats EPPI-Reviewer JSON export 
     
     o	 json_pipeline.py
     
+A sample export from EPPI-Reviewer PRIOR to formatting via the code. Running json_pipeline.py on this input results in key output (publications.json) in the website directory
+    
+    o	eppi_export--2021-09-09.json
+    
+
+FOLDER: website
+Provides the Exhibit data for the bibliography website https://infoqualitylab.org/projects/risrs2020/bibliography/ . 
+
 Underlying data for the latest version of the Empirical Retraction Lit bibliography
     
     o	index.html
     o	publications.json
     
-A sample export from EPPI-Reviewer PRIOR to formatting via the code.
-    
-    o	eppi_export--2021-09-09.json
-    
-
-
-
 # Version History
 
 Pre-versioned
@@ -128,4 +131,12 @@ o	Maintenance release:
 o	Bibliography of 385 items (unchanged from v.2.2 typo release and v2.20.0)
 
 
+v.2.20.6
 
+o	Maintenance release:
+
+ o   Updated folder structure to distinguish website files from web maintenance files
+
+ o   Updated README.md and added to release
+
+o	Bibliography of 385 items (unchanged since v.2.20.0 (aka v2.2.0))
