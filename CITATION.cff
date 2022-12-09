@@ -1,5 +1,5 @@
 # Project-level DOI: 10.5281/zenodo.5498474
-cff-version: 1.2.0
+cff-version: 1.3.0
 authors: 
   -
     family-names: Proescholdt
@@ -11,7 +11,7 @@ authors:
     orcid: "https://orcid.org/0000-0002-5098-5667"
   -
     name: "The RISRS Team"
-date-released: 2021-09-10
+date-released: 2022-12-09
 keywords: 
   - Retraction
   - "Scientific Integrity"
@@ -50,6 +50,10 @@ references:
           given-names: Yoss
         - family-names: Howell
           given-names: Katherine
+        - family-names: Jonkers
+          given-names: Bryan
+        - family-names: Hallgren
+          given-names: Susan
         - name: "The RISRS Team"
     title: "Recommendations from the Reducing the Inadvertent Spread of Retracted Science: Shaping a Research and Implementation Agenda Project"
     doi: 10.31222/osf.io/ms579
