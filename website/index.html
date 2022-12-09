@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>RISRS Retraction Review</title>
+    <title>Empirical Retraction Lit: RISRS Retraction Review</title>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic&amp;subset=latin,vietnamese' rel='stylesheet' type='text/css' />
   <link href='styles/styles.css' rel='stylesheet' type='text/css' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="dns-prefetch" href="https://cdn.toolkit.illinois.edu">
+<link rel="icon" href="https://cdn.brand.illinois.edu/favicon.ico">
+<link rel="stylesheet" href="https://cdn.toolkit.illinois.edu/2.11/toolkit.css" media="all">
+<script src="https://cdn.toolkit.illinois.edu/2.11/toolkit.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -25,27 +29,76 @@
     <script type="text/javascript" src="https://api.simile-widgets.org/exhibit/current/exhibit-api.js"></script>
     <!--script type="text/javascript" src="https://static.simile.mit.edu/exhibit/api-2.1.0/exhibit-api.js"></script-->
     <style>
-        #publication-container {
-          margin: 0px -32px;
-          margin-top: 64px;
-          font-size: 11pt;
+        .il-formatted details {
+          margin-top: 10px;
+          margin-bottom: 0px;
+        }
+        
+        .il-formatted .pub2-filters-scroll details summary { 
+            padding: 2px 10px; 
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0;
+        }
+        
+        .il-formatted input[type="text"] {
+            margin: 10px 0;
+            border-radius: 5px;
+            width: calc(100% - 25px);
+            padding: 10px;
+            font: 16px/18px var(--il-source-sans);
+            background-color: #fff;
+            border: thin var(--il-blue) solid;
+         }
+        
+        .pub2-container {
+          display: flex;
+          column-gap: 40px;
+          padding-top: 25px;
         }
 
-        #publication-container > table {
-          width: 100%;
-          border-collapse: separate;
-          border-spacing: 32px;
+        .pub2-container .pub2-filters {
+          flex: 0 0 450px;
+          padding-right: 20px;
         }
-        #publication-container > table > tbody > tr > td {
-          vertical-align: top;
-        }
-
-        #facet-panel {
+        
+        .pub2-container .pub2-filters-scroll {
+          overflow-y: scroll;
+          height: 95vh;
         }
 
-        .exhibit-flowingFacet {
-          margin-top: 32px;
+        .pub2-container .pub2-results {
+          overflow-y: scroll;
+          height: 95vh;
+          padding-right: 20px;
         }
+
+        div.exhibit-text-facet input {
+          width: 425px;
+          margin-bottom: 30px;
+        }
+
+        @media screen and (max-width: 800px) {
+          .pub2-container {
+            display: block;
+          }
+          .pub2-container .pub2-filters-scroll {
+            height: 35vh;
+          }
+          .pub2-container .pub2-results {
+            height: 55vh;
+          }
+        }
+
+        .exhibit-toolboxWidget-popup.screen {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          float: right;
+        }
+        
+        .exhibit-flowingFacet-header { display: none; }
 
         ol.exhibit-tileView-body {
           counter-reset: li;
@@ -79,8 +132,7 @@
         .publication-lens .publication-title {
             font-weight: bold;
         }
-        .publication-lens div.downloads {
-        }
+
         .publication-lens div.downloads > a {
           margin-left: 0.5em;
         }
@@ -101,7 +153,7 @@
     </style>
   </head>
   <body>
-    <div id="page-frame">
+    <div id="page-frame" class="il-formatted">
         <div id="nav-box">
     <!--<a class="item" href="/">home</a>
     <a class="item" href="publications">publications</a>
@@ -121,14 +173,58 @@
     });
   </script>-->
 
-      <div id="page-title">For export options, click orange scissors icon next to search bar. To access article links, hold control or command key and click link.</div>
-
       <div ex:role="collection" ex:itemTypes="Publication"></div>
-      
-      <div id="publication-container"><table>
-          <tr>
-              <td style="width: 45em;">
-                  <div ex:role="lens" 
+                
+     <div id="page-title">Empirical Retraction Lit (up to July 2021) covers original 
+         research ABOUT retraction. An effort to collect and analyze the data must have
+          been made beyond reporting information that is easily attainable 
+          from databases, previous literature, or other sources. 
+          
+          Bulk downloads are available from the 
+          <a href="https://github.com/infoqualitylab/Empirical-Retraction-Lit">Empirical Retraction Lit GitHub repository</a>.
+          <a href="https://zenodo.org/badge/latestdoi/303028085"><img src="https://zenodo.org/badge/303028085.svg" alt="DOI"></a> 
+          <!-- Or, to export from this page, click orange scissors icon next to search bar to see export options. 
+          To access article links, hold control or command key and click link.-->
+          
+      <div id="publication-container">
+        <div class="pub2-container">
+          <div class="pub2-filters il-details-bordered">
+            <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="search"></div>
+            <div class="pub2-filters-scroll">
+                <p><strong>Filter By Publication Characteristics</strong></p>
+            <details><summary>Language</summary><div ex:role="facet" ex:expression=".Language" ex:sortMode="alpha" ex:scroll="false"></div></details>
+            <details><summary>Publication type</summary><div ex:role="facet" ex:expression=".pub-type" ex:sortMode="count" ex:scroll="false" ex:facetLabel="Publication type"></div></details>
+            <details><summary>Venue</summary><div ex:role="facet" ex:expression=".venue" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by venue"></div></details>
+            <details><summary>Author</summary><div ex:role="facet" ex:expression=".author" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by author"></div></details>
+                <p><strong>Filter By Topic: Citation and Impact</strong></p>
+            <details><summary>Citation of retracted papers</summary><div ex:role="facet" ex:expression=".Citation_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation of retracted papers"></div></details>
+            <details><summary>Citation context analysis of retracted papers</summary><div ex:role="facet" ex:expression=".Citation_context" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation context"></div></details>
+            <details><summary>Perceptions and discussion of retracted papers</summary><div ex:role="facet" ex:expression=".Perceptions_and_discussion_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Perceptions and discussion of retracted papers"></div></details>
+            <details><summary>Impacts of retracted papers</summary><div ex:role="facet" ex:expression=".Impacts_of_retraction" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Impacts of retraction"></div></details>
+            <details><summary>Visibility/accessibility of retraction status</summary><div ex:role="facet" ex:expression=".Visibility_of_retraction_status" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Visibility of retraction status"></div></details>
+  			<details><summary>Responsible citation/citation analysis</summary><div ex:role="facet" ex:expression=".Studies_proposing_methods_for_studying_and_responding_to_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods for studying and responding to retracted papers"></div></details>
+           
+                <p><strong>Filter By How Studies Selected Retracted Papers</strong></p>
+             <details><summary>Database search limitations used by studies</summary><div ex:role="facet" ex:expression=".Database_search_limitations" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Database search limitations used by studies"></div></details>
+             <details><summary>Discipline or Geography</summary><div ex:role="facet" ex:expression=".Studies_related_to_discipline_or_geography" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies related to discipline or geography"></div></details>
+           
+                <p><strong>Filter By Methods Used or Created</strong></p>
+            <details><summary>Interviews and surveys</summary><div ex:role="facet" ex:expression=".Interviews_and_surveys" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Interviews and surveys"></div></details>
+            <details><summary>New methods for auditing literature</summary><div ex:role="facet" ex:expression=".Studies_proposing_methods_to_detect_and_prevent_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods to detect and prevent problems in the literature"></div></details>
+            <details><summary>Identifying problematic literature</summary><div ex:role="facet" ex:expression=".Studies_performing_analyses_and_actions_to_identify_and_report_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies performing analyses and actions to identify and report problems in the literature"></div></details>
+            <details><summary>Network visualization</summary><div ex:role="facet" ex:expression=".Network_Visualization" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Network visualization"></div></details>
+           
+                <p><strong>Filter By Findings-related Topics</strong></p>
+            <details><summary>Authorship of retracted papers</summary><div ex:role="facet" ex:expression=".Authorship_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Authorship of retracted papers"></div></details>
+            <details><summary>Retraction notices--characteristics</summary><div ex:role="facet" ex:expression=".Characteristics_of_retraction_notices" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retraction notices"></div></details>
+            <details><summary>Retracted papers--characteristics</summary><div ex:role="facet" ex:expression=".Characteristics_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retracted papers"></div></details>
+            <details><summary>Processes and policies</summary><div ex:role="facet" ex:expression=".Processes_and_policies" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Processes and policies related to retraction"></div></details>
+            <details><summary>Other aspects</summary><div ex:role="facet" ex:expression=".Other" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Other"></div></details>
+
+              </div>
+          </div>
+          <div class="pub2-results">
+            <div ex:role="lens" 
                       ex:itemTypes="Publication"
                       class="publication-lens"
                       style="display: none">
@@ -180,36 +276,12 @@
                       ex:grouped="false"
                       ex:orders=".year"
                       ex:directions="descending"
-                      ex:possibleOrders=".author, .year, .pub-type, .work-done-at, .AttributeId"
-                      ></div>
-              </td>
-              <td style="width: 18em;" id="facet-panel">
-                  <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="search"></div>
-                  <div ex:role="facet" ex:expression=".Language" ex:sortMode="alpha" ex:scroll="false" ex:facetLabel="filter by language"></div>
-                  <div ex:role="facet" ex:expression=".pub-type" ex:sortMode="count" ex:scroll="false" ex:facetLabel="Publication type"></div>
-				  <div ex:role="facet" ex:expression=".Authorship_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Authorship of retracted papers"></div>
-				  <div ex:role="facet" ex:expression=".Citation_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation of retracted papers"></div>
-                  <div ex:role="facet" ex:expression=".Citation_context" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Citation context"></div>
-				  <div ex:role="facet" ex:expression=".Perceptions_and_discussion_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Perceptions and discussion of retracted papers"></div>
-				  <div ex:role="facet" ex:expression=".Impacts_of_retraction" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Impacts of retraction"></div>
-				  <div ex:role="facet" ex:expression=".Characteristics_of_retraction_notices" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retraction notices"></div>
-				  <div ex:role="facet" ex:expression=".Characteristics_of_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Characteristics of retracted papers"></div>
-                  <div ex:role="facet" ex:expression=".Database_search_limitations" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Database search limitations used by studies"></div>
-                  <div ex:role="facet" ex:expression=".Interviews_and_surveys" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Interviews and surveys"></div>
-				  <div ex:role="facet" ex:expression=".Processes_and_policies" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Processes and policies related to retraction"></div>
-                  <div ex:role="facet" ex:expression=".Studies_related_to_discipline_or_geography" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies related to discipline or geography"></div>
-                  <div ex:role="facet" ex:expression=".Visibility_of_retraction_status" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Visibility of retraction status"></div>
-				  <div ex:role="facet" ex:expression=".Studies_proposing_methods_to_detect_and_prevent_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods to detect and prevent problems in the literature"></div>
-				  <div ex:role="facet" ex:expression=".Studies_proposing_methods_for_studying_and_responding_to_retracted_papers" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies proposing methods for studying and responding to retracted papers"></div>
-				  <div ex:role="facet" ex:expression=".Studies_performing_analyses_and_actions_to_identify_and_report_problems_in_the_literature" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Studies performing analyses and actions to identify and report problems in the literature"></div>
-				  <div ex:role="facet" ex:expression=".Network_Visualization" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Network visualization"></div>
-                  <div ex:role="facet" ex:expression=".Other" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="Other"></div>
-                  <div ex:role="facet" ex:expression=".venue" ex:sortMode="count" ex:scroll="false" ex:showMissing="false" ex:facetLabel="filter by venue"></div>
-                  <div ex:role="facet" ex:expression=".author" ex:sortMode="count" ex:scroll="false" ex:facetLabel="filter by author"></div>
-              </td>
-          </tr>
-      </table></div>
+                      ex:possibleOrders=".author, .year, .pub-type, .work-done-at, .AttributeId"></div>
+            
+          </div>
+        </div>
 
+</div>
     </div>
   </body>
 </html>
