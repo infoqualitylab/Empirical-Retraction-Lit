@@ -1,7 +1,7 @@
 # Empirical Retraction Lit bibliography 
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498474.svg)]([https://doi.org/10.5281/zenodo.5498474](https://doi.org/10.5281/zenodo.5498474)) 
-Includes mpirical Retraction Lit bibliography content, website, and web maintenance info.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5498500.svg)](https://doi.org/10.5281/zenodo.5498500)
+Includes Empirical Retraction Lit bibliography content, website, and web maintenance info.
 
 # Description
 Bibliography of empirical literature related to retraction from the "Reducing the Inadvertent Spread of Retracted Science: Shaping a Research and Implementation Agenda" (RISRS) project, Alfred P. Sloan Foundation G-2020-12623.
